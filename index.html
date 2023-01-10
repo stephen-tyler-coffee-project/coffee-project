@@ -9,34 +9,38 @@
           integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 <style>
+
 </style>
-<body class="container-fluid m-0 p-0">
+<body>
+<div class="container">
+    <h1 class="text-center col mx-auto my-4 px-3">Coffee!</h1>
 
-<h1 class="container d-flex align-items-center justify-content-center m-0 pt-1">Coffee!</h1>
-
-<div class="row">
-    <form class="col-6">
-        <div class="">
-        <label for="roast-selection">Roast</label>
-        <select id="roast-selection">
-            <!--            <option value="">All</option>-->
-            <option>light</option>
-            <option>medium</option>
-            <option>dark</option>
-        </select>
-        <input id="submit" type="submit"/>
-        </div>
-    </form>
-
-    <div class="col-6">
-        <div class="coffee">
-            <div class="">
-                <!--        <th>ID</th>-->
-                <h2 class="">NAME</h2>
-                <p class="">ROAST</p>
+    <div class="row">
+        <form class="col-5 mx-3">
+            <div class="row">
+                <label for="roast-selection" class="col-12 text-center">Select Your Roast!</label>
+                <select id="roast-selection" class="col-12 text-center my-1">
+                    <option>All</option>
+                    <option>Light</option>
+                    <option>Medium</option>
+                    <option>Dark</option>
+                </select>
+                <input id="submit" type="submit" class="col-12 my-1"/>
             </div>
-        </div>
-        <div id="coffees" class="x"></div>
+        </form>
+
+        <div id="coffees" class="col-5 container mx-auto"></div>
+
+        <!--        <div class="col-6 mx-auto">-->
+        <!--            <div class="coffee">-->
+        <!--                <div class="d-flex align-items-center">-->
+        <!--                    &lt;!&ndash;        <th>ID</th>&ndash;&gt;-->
+        <!--                    <h2 class="m-auto">NAME</h2>-->
+        <!--                    <p class="m-auto text-secondary">ROAST</p>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--            <div id="coffees"></div>-->
+        <!--        </div>-->
     </div>
 </div>
 
