@@ -3,7 +3,7 @@
 function renderCoffee(coffee) {
     var html = '<div class="coffee container-fluid">';
     // html += '<td>' + coffee.id + '</td>'; Commented out to get rid of the ID's in the HTML file
-    html += '<h3 class="text-center">' + coffee.name + '</h3>';
+    html += '<h5 class="text-center">' + coffee.name + '</h5>';
     html += '<p class="text-center text-secondary">' + coffee.roast + '</p>';
     html += '</div>';
 
