@@ -1,11 +1,11 @@
 "use strict"
 
 function renderCoffee(coffee) {
-    var html = '<tr class="coffee">';
+    var html = '<div class="coffee">';
     // html += '<td>' + coffee.id + '</td>'; Commented out to get rid of the ID's in the HTML file
-    html += '<td>' + coffee.name + '</td>';
-    html += '<td>' + coffee.roast + '</td>';
-    html += '</tr>';
+    html += '<h3>' + coffee.name + '</h3>';
+    html += '<p>' + coffee.roast + '</p>';
+    html += '</div>';
 
     return html;
 }
@@ -55,5 +55,21 @@ var roastSelection = document.querySelector('#roast-selection');
 tbody.innerHTML = renderCoffees(coffees);
 
 submitButton.addEventListener('click', updateCoffees);
+
+function sort_by_id(){
+    return function (elem1, elem2){
+        if (elem1.id <elem2.id) {
+            return -1;
+        } else if (elem1.id > elem2.id) {
+            return 1;
+        } else {
+            return 0;
+        }
+    };
+}
+
+console.log(coffees.sort(sort_by_id()));
+
+
 
 
