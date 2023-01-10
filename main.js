@@ -1,10 +1,10 @@
 "use strict"
 
 function renderCoffee(coffee) {
-    var html = '<div class="coffee">';
+    var html = '<div class="coffee container-fluid">';
     // html += '<td>' + coffee.id + '</td>'; Commented out to get rid of the ID's in the HTML file
-    html += '<h3>' + coffee.name + '</h3>';
-    html += '<p>' + coffee.roast + '</p>';
+    html += '<h3 class="text-center">' + coffee.name + '</h3>';
+    html += '<p class="text-center text-secondary">' + coffee.roast + '</p>';
     html += '</div>';
 
     return html;
@@ -12,7 +12,7 @@ function renderCoffee(coffee) {
 
 function renderCoffees(coffees) {
     var html = '';
-    for(var i = coffees.length - 1; i >= 0; i--) {
+    for(var i = 0; i <= coffees.length - 1; i++) {
         html += renderCoffee(coffees[i]);
     }
     return html;
@@ -48,31 +48,32 @@ var coffees = [
     {id: 14, name: 'French', roast: 'dark'},
 ];
 
-var tbody = document.querySelector('#coffees');
+var divBody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
 
-tbody.innerHTML = renderCoffees(coffees);
+divBody.innerHTML = renderCoffees(coffees);
 
 submitButton.addEventListener('click', updateCoffees);
 
-function sort_by_id(){
-    return function (elem1, elem2){
-        if (elem1.id <elem2.id) {
-            return -1;
-        } else if (elem1.id > elem2.id) {
-            return 1;
-        } else {
-            return 0;
-        }
-    };
-}
-
-console.log(coffees.sort(sort_by_id()));
+// function sort_by_id(){
+//     return function (elem1, elem2){
+//         if (elem1.id <elem2.id) {
+//             return -1;
+//         } else if (elem1.id > elem2.id) {
+//             return 1;
+//         } else {
+//             return 0;
+//         }
+//     };
+// }
+// console.log(coffees.sort(sort_by_id()));
 
 var sortByID = coffees.sort((a,b) => {
     return a.id - b.id;
 });
 console.log(sortByID);
+
+
 
 
