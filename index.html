@@ -14,26 +14,29 @@
 
 <h1 class="container d-flex align-items-center justify-content-center m-0 pt-1">Coffee!</h1>
 
-<hr class="m-2">
-
 <div class="row">
     <form class="col-6">
-        <label for="roast-selection"></label>
+        <div class="">
+        <label for="roast-selection">Roast</label>
         <select id="roast-selection">
+            <!--            <option value="">All</option>-->
             <option>light</option>
             <option>medium</option>
             <option>dark</option>
         </select>
         <input id="submit" type="submit"/>
+        </div>
     </form>
 
     <div class="col-6">
         <div class="coffee">
-            <!--        <th>ID</th>-->
-            <h3 class="text-center">NAME</h3>
-            <p class="text-center text-secondary">ROAST</p>
+            <div class="">
+                <!--        <th>ID</th>-->
+                <h2 class="">NAME</h2>
+                <p class="">ROAST</p>
+            </div>
         </div>
-        <div id="coffees"></div>
+        <div id="coffees" class="x"></div>
     </div>
 </div>
 

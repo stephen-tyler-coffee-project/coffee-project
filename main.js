@@ -1,10 +1,10 @@
 "use strict"
 
 function renderCoffee(coffee) {
-    var html = '<div class="coffee container-fluid">';
+    var html = '<div class="coffee row">';
     // html += '<td>' + coffee.id + '</td>'; Commented out to get rid of the ID's in the HTML file
-    html += '<h5 class="text-center">' + coffee.name + '</h5>';
-    html += '<p class="text-center text-secondary">' + coffee.roast + '</p>';
+    html += '<h5 class="col-6 text-center m-0">' + coffee.name + '</h5>';
+    html += '<p class="col-6 text-center text-secondary m-0">' + coffee.roast + '</p>';
     html += '</div>';
 
     return html;
@@ -27,7 +27,7 @@ function updateCoffees(e) {
             filteredCoffees.push(coffee);
         }
     });
-    tbody.innerHTML = renderCoffees(filteredCoffees);
+    divBody.innerHTML = renderCoffees(filteredCoffees);
 }
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
