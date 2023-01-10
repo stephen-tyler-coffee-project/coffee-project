@@ -70,6 +70,9 @@ function sort_by_id(){
 
 console.log(coffees.sort(sort_by_id()));
 
-
+var sortByID = coffees.sort((a,b) => {
+    return a.id - b.id;
+});
+console.log(sortByID);
 
 
