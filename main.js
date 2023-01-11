@@ -24,35 +24,32 @@ function renderCoffees(coffees) {
 function updateCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
     var selectedRoast = roastSelection.value;
-    var searchBarInput = searchForCoffee.value.toUpperCase();
+    var searchBarInput = searchForCoffee.value.trim().toUpperCase();
     var filteredCoffees = [];
-    coffees.forEach(function(coffee) {
-        if (coffee.name.toUpperCase().includes(searchBarInput)) {
+    coffees.forEach(function (coffee) {
+        if (selectedRoast === 'all' && searchBarInput === '') {
+            filteredCoffees.push(coffee);
+            return
+        }
+        if (selectedRoast === 'all' && coffee.name.toUpperCase().includes(searchBarInput)) {
+            filteredCoffees.push(coffee);
+            return
+        }
+        if (coffee.roast === selectedRoast && searchBarInput === '') {
+            filteredCoffees.push(coffee);
+            return
+        }
+        if (coffee.roast === selectedRoast && coffee.name.toUpperCase().includes(searchBarInput)) {
             filteredCoffees.push(coffee);
         }
-        // if (roastSelection.value === 'all') {
-        //     filteredCoffees.push(coffee);
-        // }
-        // else if (coffee.roast === selectedRoast) {
-        //     filteredCoffees.push(coffee);
-        // }
     });
     divBody.innerHTML = renderCoffees(filteredCoffees);
 }
-// function that is used as a live search for coffee
-// function searchTheCoffees () {
-//     var searchBarInput = searchForCoffee.value.toUpperCase();
-//     var filteredCoffees =[];
-//     // console.log(searchBarInput);
-//     coffees.forEach(function (coffee) {
-//         if (coffee.name.toUpperCase().includes(searchBarInput)) {
-//             filteredCoffees.push(coffee);
-//         }
-//     });
-//     divBody.innerHTML = renderCoffees(filteredCoffees);
-// }
+
 var searchForCoffee = document.querySelector('#searchForCoffee');
-searchForCoffee.addEventListener('keyup', updateCoffees)
+searchForCoffee.addEventListener('keyup', updateCoffees);
+var roastSelection = document.querySelector('#roast-selection');
+roastSelection.addEventListener('change', updateCoffees);
 
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
@@ -76,7 +73,7 @@ var coffees = [
 // variables that are used to place data into the HTML
 var divBody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
-var roastSelection = document.querySelector('#roast-selection');
+// var roastSelection = document.querySelector('#roast-selection');
 
 divBody.innerHTML = renderCoffees(coffees);
 
