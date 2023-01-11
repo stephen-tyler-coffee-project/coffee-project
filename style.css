@@ -1,7 +1,7 @@
 :root {
     --bs-black: #0D0D0D;
     --bs-mocha: #A67246;
-    --bs-tan: #F2CEA2
+    --bs-tan: #c99c63
 }
 
 .bg-black {
@@ -24,12 +24,12 @@ body {
 }
 
 .text-mocha {
-    color: #A67246;
+    color: #A67246 !important;
     opacity: 0.75;
 }
 
 .text-tan {
-    color: #F2CEA2;
+    color: #c99c63;
     opacity: 0.75;
 }
 
