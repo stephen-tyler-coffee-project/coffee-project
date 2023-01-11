@@ -1,6 +1,6 @@
 "use strict"
 
-// function adds the coffee's to the DIV that contains all of the data in the Coffees array
+// function adds the coffee's to the DIV that contains all the data in the Coffees array
 function renderCoffee(coffee) {
     var html = '<div class="coffee mx-auto row">';
     // html += '<td>' + coffee.id + '</td>';
@@ -26,32 +26,36 @@ function updateCoffees(e) {
     var selectedRoast = roastSelection.value;
     var filteredCoffees = [];
     coffees.forEach(function(coffee) {
-        if (roastSelection.value === 'all') {
+        if (selectedRoast === 'all') { // added to search for all coffees
             filteredCoffees.push(coffee);
         }
-        else if (coffee.roast === selectedRoast) {
+        if (coffee.roast === selectedRoast) {
             filteredCoffees.push(coffee);
         }
     });
     divBody.innerHTML = renderCoffees(filteredCoffees);
 }
 
-// function that is used as a live search for coffee
+var roastSelection = document.querySelector('#roast-selection');
 
+
+// function that is used as a live search for coffee
 function searchTheCoffees () {
     var searchBarInput = searchForCoffee.value.toUpperCase();
     var filteredCoffees =[];
     // console.log(searchBarInput);
     coffees.forEach(function (coffee) {
-        if (coffee.name.toUpperCase().startsWith(searchBarInput)) {
+        if (coffee.name.toUpperCase().includes(searchBarInput)) {
+        // if (coffee.name.toUpperCase().startsWith(searchBarInput)) { search with .startsWith instead of .includes
             filteredCoffees.push(coffee);
         }
     });
     divBody.innerHTML = renderCoffees(filteredCoffees);
 }
 
-var searchForCoffee = document.querySelector('#searchForCoffee');
+var searchForCoffee = document.getElementById('#searchForCoffee');
 searchForCoffee.addEventListener('keyup', searchTheCoffees)
+
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 var coffees = [
@@ -74,30 +78,9 @@ var coffees = [
 // variables that are used to place data into the HTML
 var divBody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
-var roastSelection = document.querySelector('#roast-selection');
+// var roastSelection = document.querySelector('#roast-selection');
 
 divBody.innerHTML = renderCoffees(coffees);
 
 submitButton.addEventListener('click', updateCoffees);
-
-// function sort_by_id(){
-//     return function (elem1, elem2){
-//         if (elem1.id <elem2.id) {
-//             return -1;
-//         } else if (elem1.id > elem2.id) {
-//             return 1;
-//         } else {
-//             return 0;
-//         }
-//     };
-// }
-// console.log(coffees.sort(sort_by_id()));
-//
-// var sortByID = coffees.sort((a,b) => {
-//     return a.id - b.id;
-// });
-// console.log(sortByID);
-
-
-
 
