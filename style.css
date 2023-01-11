@@ -1,12 +1,40 @@
-table {
-    border-collapse: collapse;
-    margin: 15px 0;
+:root {
+    --bs-black: #0D0D0D;
+    --bs-mocha: #A67246;
+    --bs-tan: #F2CEA2
 }
 
-td, th {
-    border: 1px solid black;
-    padding: 5px 10px;
+.bg-black {
+    background-color: var(--bs-black);
 }
+
+.bg-mocha {
+    background-color: var(--bs-mocha);
+}
+
+.bg-tan {
+    background-color: var(--bs-tan);
+}
+
+body {
+    background-image: url("img/background-coffee-cup2.jpg");
+    background-size: cover;
+    height: 100vh;
+    background-repeat: no-repeat;
+}
+
+.text-mocha {
+    color: #A67246;
+    opacity: 0.75;
+}
+
+.text-tan {
+    color: #F2CEA2;
+    opacity: 0.75;
+}
+
+
+
 
 
 

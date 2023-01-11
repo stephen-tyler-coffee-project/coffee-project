@@ -4,8 +4,8 @@
 function renderCoffee(coffee) {
     var html = '<div class="coffee mx-auto row">';
     // html += '<td>' + coffee.id + '</td>';
-    html += '<h4 class="col-8 text-center my-2">' + coffee.name + '</h4>';
-    html += '<p class="text-secondary text-center col-4 my-2">' + coffee.roast + '</p>';
+    html += '<h4 class="col-8 text-center my-2 text-mocha">' + coffee.name + '</h4>';
+    html += '<p class="text-center col-4 my-2 text-tan">' + coffee.roast + '</p>';
     html += '</div>';
 
     return html;
