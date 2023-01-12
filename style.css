@@ -10,21 +10,31 @@
 
 .bg-mocha {
     background-color: var(--bs-mocha);
+    opacity: 0.75;
 }
 
 .bg-tan {
     background-color: var(--bs-tan);
+    opacity: .75;
 }
 
 .border-mocha {
-    background-color: var(--bs-mocha);
+    border-color: var(--bs-mocha);
+}
+
+.border-dark-mocha {
+    border-color: #442f1d;
 }
 
 body {
     background-image: url("img/background-coffee-cup2.jpg");
     background-size: cover;
-    height: 100vh;
+    height: 100%;
     background-repeat: no-repeat;
+}
+
+header {
+    background-color: rgba(183, 181, 181, 0.2);
 }
 
 .text-mocha {
@@ -38,12 +48,41 @@ body {
 }
 
 .text-offWhite {
-    color: #c4c4c4;
+    color: rgba(3, 3, 3, 0.56);
 }
 
+::placeholder {
+    color: rgba(13, 13, 13, 0.71);
+}
 
+.nav-link:hover {
+    color: rgb(255, 255, 255);
+}
 
+.container-style-bg {
+    background-color: rgba(183, 181, 181, 0.2);
+    border-radius: 0.5em;
+}
 
+.monoton {
+    font-family: 'Monoton', serif ;
+    font-size: 3.5em;
+}
 
+.monofett {
+    font-family: 'Monofett', serif;
+}
 
+.fugaz-one {
+    font-family: 'Fugaz One', serif;
+}
 
+.sue-ellen-francisco {
+    font-family: 'Sue Ellen Francisco', serif;
+    font-size: 1.8em;
+}
+
+.secular-one {
+    font-family: 'Secular One', serif;
+    font-size: 1.25em;
+}

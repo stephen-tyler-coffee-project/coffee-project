@@ -4,8 +4,8 @@
 function renderCoffee(coffee) {
     var html = '<div class="coffee mx-auto row">';
     // html += '<td>' + coffee.id + '</td>';
-    html += '<h4 class="col-8 text-center my-2 text-mocha">' + coffee.name + '</h4>';
-    html += '<p class="text-center col-4 my-2 text-tan">' + coffee.roast + '</p>';
+    html += '<h3 class="fugaz-one col-xl-2 col-lg-3 col-md-3 col-sm-3 text-center my-2 text-mocha">' + coffee.name + '</h3>';
+    html += '<p class="fugaz-one text-center col-xl-1 col-lg-2 col-md-2 col-sm-3 my-3 text-tan">' + coffee.roast + '</p>';
     html += '</div>';
 
     return html;
@@ -21,17 +21,17 @@ function renderCoffees(coffees) {
 }
 
 // function that updates what is output when you change your roast selection AND search
-function updateCoffees(e) {
-    e.preventDefault(); // don't submit the form, we just want to update the data
+function updateCoffees() {
+    // e.preventDefault(); // don't submit the form, we just want to update the data
     var selectedRoast = roastSelection.value;
-    var searchBarInput = searchForCoffee.value.trim().toUpperCase();
+    var searchBarInput = searchForCoffee.value.trim().toLowerCase();
     var filteredCoffees = [];
     coffees.forEach(function (coffee) {
         if (selectedRoast === 'all' && searchBarInput === '') {
             filteredCoffees.push(coffee);
             return
         }
-        if (selectedRoast === 'all' && coffee.name.toUpperCase().includes(searchBarInput)) {
+        if (selectedRoast === 'all' && coffee.name.toLowerCase().includes(searchBarInput)) {
             filteredCoffees.push(coffee);
             return
         }
@@ -39,7 +39,7 @@ function updateCoffees(e) {
             filteredCoffees.push(coffee);
             return
         }
-        if (coffee.roast === selectedRoast && coffee.name.toUpperCase().includes(searchBarInput)) {
+        if (coffee.roast === selectedRoast && coffee.name.toLowerCase().includes(searchBarInput)) {
             filteredCoffees.push(coffee);
         }
     });
@@ -50,6 +50,22 @@ var searchForCoffee = document.querySelector('#searchForCoffee');
 searchForCoffee.addEventListener('keyup', updateCoffees);
 var roastSelection = document.querySelector('#roast-selection');
 roastSelection.addEventListener('change', updateCoffees);
+
+
+function addUniqueCoffee() {
+    // e.preventDefault();
+    var newUniqueCoffee = {
+        id: coffees.length + 1,
+        name: document.querySelector('#add-coffee-name').value.trim().toLowerCase(),
+        roast: document.querySelector('#add-coffee-roast').value
+    };
+    console.log(newUniqueCoffee);
+    coffees.push(newUniqueCoffee);
+    return updateCoffees(coffees);
+}
+
+var addAUniqueCoffee = document.querySelector('#submitNewCoffee');
+addAUniqueCoffee.addEventListener('click', addUniqueCoffee);
 
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
