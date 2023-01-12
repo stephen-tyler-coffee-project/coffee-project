@@ -86,3 +86,8 @@ header {
     font-family: 'Secular One', serif;
     font-size: 1.25em;
 }
+
+.copyright-sym {
+    font-size: 0.25em;
+    vertical-align: center;
+}
